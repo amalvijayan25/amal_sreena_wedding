@@ -29,6 +29,14 @@ small {
   color: #A0522D;
 }
 
+.card {
+  background-image: url('/amal_sreena_wedding/assets/card-background.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  background-blend-mode: overlay;
+}
+
 .card strong {
   color: #8B4513;
 }
