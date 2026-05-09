@@ -1,30 +1,27 @@
 .countdown {
   text-align: center;
   padding: 20px 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(152, 251, 152, 0.1);
   border-radius: 10px;
   margin-bottom: 20px;
-  border: 2px solid #00ff00;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-  animation: glow 2s ease-in-out infinite alternate;
 }
 
 .countdown p {
   margin: 0;
-  font-size: 1.5rem;
-  color: #00ff00;
+  font-size: 1.2rem;
+  color: #8B4513;
   font-weight: bold;
-  font-family: 'Orbitron', monospace;
-  text-shadow: 0 0 10px #00ff00;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #8B4513;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  animation: tick 1s ease-in-out infinite;
 }
 
-@keyframes glow {
-  from {
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-  }
-  to {
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
-  }
+@keyframes tick {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 small {
