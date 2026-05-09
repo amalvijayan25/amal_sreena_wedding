@@ -10,6 +10,24 @@
   margin-top: 12px;
 }
 
+.button-group {
+  margin-top: 16px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #8B4513;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: #a25e2c;
+}
+
 footer p {
   margin: 0;
   padding-top: 28px;
