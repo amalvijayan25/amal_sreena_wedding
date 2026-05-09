@@ -1,16 +1,30 @@
 .countdown {
   text-align: center;
   padding: 20px 0;
-  background: rgba(152, 251, 152, 0.1);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   margin-bottom: 20px;
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
 .countdown p {
   margin: 0;
-  font-size: 1.2rem;
-  color: #8B4513;
+  font-size: 1.5rem;
+  color: #00ff00;
   font-weight: bold;
+  font-family: 'Orbitron', monospace;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+  }
 }
 
 small {
