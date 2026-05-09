@@ -72,6 +72,8 @@ small {
 .button:hover {
   background: #8B4513;
   color: #fff;
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
 footer p {
