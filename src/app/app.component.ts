@@ -13,7 +13,7 @@ export class AppComponent {
   receptionMapUrl = 'https://maps.app.goo.gl/XPcDztG8t2naX65r8';
   wedding = {
     date: 'Friday, 28 August 2026',
-    time: '5:00 PM',
+    time: '12:25 PM - 1:30 PM',
     location: 'Blue Lotus Garden, Chennai'
   };
   reception = {
