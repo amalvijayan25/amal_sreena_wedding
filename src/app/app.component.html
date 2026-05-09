@@ -16,7 +16,7 @@
       <ul>
         <li><strong>Date:</strong> {{ wedding.date }}</li>
         <li><strong>Time:</strong> {{ wedding.time }}</li>
-        <li><strong>Location:</strong> {{ wedding.location }}</li>
+        <li><strong>Location:</strong> <span [innerHTML]="wedding.location"></span></li>
       </ul>
       <div class="button-group">
         <a class="button" [href]="weddingMapUrl" target="_blank" rel="noreferrer">
@@ -31,7 +31,7 @@
       <ul>
         <li><strong>Date:</strong> {{ reception.date }}</li>
         <li><strong>Time:</strong> {{ reception.time }}</li>
-        <li><strong>Location:</strong> {{ reception.location }}</li>
+        <li><strong>Location:</strong> <span [innerHTML]="reception.location"></span></li>
       </ul>
       <div class="button-group">
         <a class="button" [href]="receptionMapUrl" target="_blank" rel="noreferrer">

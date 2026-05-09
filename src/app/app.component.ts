@@ -17,12 +17,12 @@ export class AppComponent {
   wedding = {
     date: 'Friday, 28 August 2026',
     time: '12:25 PM - 1:30 PM',
-    location: 'Blue Lotus Garden, Chennai'
+    location: '<strong>Hill Palace Auditorium</strong>, <small>Chembra, Palakkad</small>'
   };
   reception = {
     date: 'Saturday, 29 August 2026',
     time: '4:00 PM - 9:00 PM',
-    location: 'Neon Ballroom, Starview Convention Center, Chennai'
+    location: '<strong>Indrapuri Auditorium</strong>, <small>Thiruvananthapuram</small>'
   };
 
   constructor() {

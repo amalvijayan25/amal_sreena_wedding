@@ -13,6 +13,11 @@
   font-weight: bold;
 }
 
+small {
+  font-size: 0.8em;
+  color: #A0522D;
+}
+
 .card strong {
   color: #8B4513;
 }
