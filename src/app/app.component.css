@@ -32,20 +32,23 @@ small {
 
 .button-group {
   margin-top: 16px;
+  text-align: center;
 }
 
 .button {
   display: inline-block;
   padding: 10px 16px;
-  background: #8B4513;
-  color: #fff;
+  background: transparent;
+  color: #8B4513;
   text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.2s ease;
+  border: 2px solid #8B4513;
+  border-radius: 12px;
+  transition: all 0.2s ease;
 }
 
 .button:hover {
-  background: #a25e2c;
+  background: #8B4513;
+  color: #fff;
 }
 
 footer p {
