@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&family=Dancing+Script:wght@400;700&display=swap');
 
 :root {
   --bg-primary: #FAF9F6;
@@ -21,7 +21,7 @@ body {
   min-height: 100vh;
   background: linear-gradient(to bottom, #FFFFFF 0%, #FAF9F6 100%);
   color: var(--text-bright);
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Dancing Script', cursive;
 }
 
 main {
