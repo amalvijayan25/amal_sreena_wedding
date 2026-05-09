@@ -18,7 +18,7 @@ export class AppComponent {
   };
   reception = {
     date: 'Saturday, 29 August 2026',
-    time: '7:00 PM',
+    time: '4:00 PM - 9:00 PM',
     location: 'Neon Ballroom, Starview Convention Center, Chennai'
   };
 }
