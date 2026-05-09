@@ -1,0 +1,49 @@
+<main>
+  <header>
+    <p>Save the date for a retro-future celebration</p>
+    <h1>Amal & Sreena</h1>
+    <p>Join us for a 90s + 2K inspired wedding weekend full of bright energy, music, and memories.</p>
+  </header>
+
+  <section class="section-grid">
+    <article class="card">
+      <h2>Wedding Ceremony</h2>
+      <p>We would be honored to have you with us as we begin our life together.</p>
+      <ul>
+        <li><strong>Date:</strong> {{ wedding.date }}</li>
+        <li><strong>Time:</strong> {{ wedding.time }}</li>
+        <li><strong>Location:</strong> {{ wedding.location }}</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Reception Party</h2>
+      <p>Stay after the ceremony for retro lights, great food, and great company.</p>
+      <ul>
+        <li><strong>Date:</strong> {{ reception.date }}</li>
+        <li><strong>Time:</strong> {{ reception.time }}</li>
+        <li><strong>Location:</strong> {{ reception.location }}</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Photo Upload</h2>
+      <p>Share your favorite moments from our wedding by uploading your images to our Google Drive album.</p>
+      <div class="button-group">
+        <a class="button" [href]="googleDriveUploadUrl" target="_blank" rel="noreferrer">
+          Upload Photos
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Dress Code</h2>
+      <p>Think neon, glitter, bold patterns, and nostalgic Y2K vibes.</p>
+      <p>Feel free to bring your favorite 90s or early 2000s style to the celebration.</p>
+    </article>
+  </section>
+
+  <footer>
+    <p>We can’t wait to celebrate with you.</p>
+  </footer>
+</main>

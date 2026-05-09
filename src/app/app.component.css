@@ -1,0 +1,16 @@
+.card strong {
+  color: #ffffff;
+}
+
+.card p:first-of-type {
+  margin-bottom: 16px;
+}
+
+.card ul {
+  margin-top: 12px;
+}
+
+footer p {
+  margin: 0;
+  padding-top: 28px;
+}
