@@ -19,7 +19,8 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #FFFFFF 0%, #FAF9F6 100%);
+  background: linear-gradient(to bottom, #FFFFFF 0%, #FAF9F6 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+  background-size: cover;
   color: var(--text-bright);
   font-family: 'Dancing Script', cursive;
 }
