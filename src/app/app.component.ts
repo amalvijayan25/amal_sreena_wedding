@@ -11,6 +11,9 @@ export class AppComponent {
   googleDriveUploadUrl = 'https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID?usp=sharing';
   weddingMapUrl = 'https://maps.app.goo.gl/CzY9825VpdgCGL8A7';
   receptionMapUrl = 'https://maps.app.goo.gl/XPcDztG8t2naX65r8';
+  countdownDays: number;
+  countdownHours: number;
+
   wedding = {
     date: 'Friday, 28 August 2026',
     time: '12:25 PM - 1:30 PM',
@@ -21,4 +24,16 @@ export class AppComponent {
     time: '4:00 PM - 9:00 PM',
     location: 'Neon Ballroom, Starview Convention Center, Chennai'
   };
+
+  constructor() {
+    this.calculateCountdown();
+  }
+
+  calculateCountdown() {
+    const weddingDate = new Date('2026-08-28T12:25:00');
+    const now = new Date();
+    const diffMs = weddingDate.getTime() - now.getTime();
+    this.countdownDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    this.countdownHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  }
 }

@@ -1,3 +1,18 @@
+.countdown {
+  text-align: center;
+  padding: 20px 0;
+  background: rgba(152, 251, 152, 0.1);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.countdown p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #8B4513;
+  font-weight: bold;
+}
+
 .card strong {
   color: #8B4513;
 }
