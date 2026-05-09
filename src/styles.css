@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap');
 
 :root {
-  color-scheme: dark;
-  --bg-primary: #0a0f26;
-  --bg-secondary: #141a3c;
-  --panel: rgba(19, 44, 96, 0.9);
-  --panel-glow: rgba(147, 90, 255, 0.18);
-  --text-bright: #f4f7ff;
-  --accent: #ff4ce5;
-  --accent2: #4cffd5;
-  --border: rgba(255, 255, 255, 0.12);
+  --bg-primary: #FAF9F6;
+  --bg-secondary: #FFFFFF;
+  --panel: rgba(255, 255, 255, 0.95);
+  --panel-glow: rgba(152, 251, 152, 0.1);
+  --text-bright: #8B4513;
+  --text-secondary: #A0522D;
+  --accent: #77DD77;
+  --accent2: #90EE90;
+  --border: rgba(139, 69, 19, 0.2);
 }
 
 * {
@@ -19,17 +19,9 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top, #2b0f4a 0%, #0a0f26 40%, #05070e 100%);
+  background: linear-gradient(to bottom, #FFFFFF 0%, #FAF9F6 100%);
   color: var(--text-bright);
   font-family: 'Orbitron', sans-serif;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: linear-gradient(180deg, rgba(255, 103, 244, 0.08), transparent 25%), linear-gradient(90deg, rgba(80, 211, 255, 0.08), transparent 30%);
-  pointer-events: none;
 }
 
 main {
@@ -48,13 +40,13 @@ header h1 {
   margin: 0;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  text-shadow: 0 0 28px rgba(255, 76, 229, 0.45);
+  text-shadow: 0 0 28px rgba(119, 221, 119, 0.45);
 }
 
 header p {
   margin: 16px auto 0;
   max-width: 640px;
-  color: #d3d9ff;
+  color: #CD853F;
   font-size: 1rem;
   line-height: 1.7;
 }
@@ -63,8 +55,8 @@ section {
   margin-top: 32px;
   border: 1px solid var(--border);
   border-radius: 28px;
-  background: linear-gradient(180deg, rgba(18, 29, 61, 0.94), rgba(12, 18, 33, 0.92));
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 249, 246, 0.95));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(18px);
 }
 
@@ -76,9 +68,9 @@ section {
 
 .card {
   padding: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(139, 69, 19, 0.1);
   border-radius: 24px;
-  background: rgba(9, 19, 42, 0.75);
+  background: rgba(255, 255, 255, 0.9);
   position: relative;
 }
 
@@ -87,9 +79,9 @@ section {
   position: absolute;
   inset: -1px;
   border-radius: 25px;
-  background: linear-gradient(135deg, rgba(255, 76, 229, 0.4), rgba(79, 255, 212, 0.35));
+  background: linear-gradient(135deg, rgba(119, 221, 119, 0.2), rgba(144, 238, 144, 0.15));
   filter: blur(18px);
-  opacity: 0.75;
+  opacity: 0.5;
   z-index: -1;
 }
 
@@ -103,7 +95,7 @@ section {
 .card p,
 .card li {
   margin: 0;
-  color: #dbe4ff;
+  color: #A0522D;
   line-height: 1.75;
 }
 
@@ -132,7 +124,7 @@ section {
   color: white;
   font-weight: 700;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 16px 30px rgba(80, 211, 255, 0.16);
+  box-shadow: 0 16px 30px rgba(119, 221, 119, 0.2);
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
@@ -144,7 +136,7 @@ section {
 footer {
   margin-top: 40px;
   text-align: center;
-  color: #99a8ff;
+  color: #D2691E;
   font-size: 0.95rem;
 }
 
