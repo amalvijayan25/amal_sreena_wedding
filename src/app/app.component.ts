@@ -11,8 +11,8 @@ export class AppComponent implements OnInit, OnDestroy {
   googleDriveUploadUrl = 'https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID?usp=sharing';
   weddingMapUrl = 'https://maps.app.goo.gl/CzY9825VpdgCGL8A7';
   receptionMapUrl = 'https://maps.app.goo.gl/XPcDztG8t2naX65r8';
-  countdownDays: number;
-  countdownHours: number;
+  countdownDays: number=0;
+  countdownHours: number=0;
   private countdownInterval: any;
 
   wedding = {
