@@ -50,14 +50,14 @@ header p {
   margin: 16px auto 0;
   max-width: 640px;
   color: #CD853F;
-  font-size: 2rem;
+  font-size: 1.25rem;
   line-height: 1.7;
 }
 
 section {
   margin-top: 32px;
   border: 1px solid var(--border);
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 249, 246, 0.95));
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(18px);
