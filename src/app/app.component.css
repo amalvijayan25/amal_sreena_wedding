@@ -30,19 +30,36 @@ small {
 }
 
 .card {
-  background-image: url('../assets/card-background.jpeg');
   background-size: cover;
   background-position: center;
-  background-color: rgba(255, 255, 255, 0.7);
-  background-blend-mode: overlay;
+  background-color: #ffffff; /* Fallback color */
+  
+  /* Base card background with built-in tint */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+    url('../assets/card-background.jpeg');
+
   &.wedding_card {
-    background-image: url('../assets/wedding_card_bg.png');
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+      url('../assets/wedding_card_bg.png');
   }
+
   &.reception_card {
-    background-image: url('../assets/reception_card_bg.png');
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+      url('../assets/reception_card_bg.png');
   }
+
   &.photo_upload_card {
-    background-image: url('../assets/photo_upload_card_bg.jpg');
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+      url('../assets/photo_upload_card_bg.jpg');
+  }
+  &.dress_code_card {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+      url('../assets/dress_code_card_bg.png');
   }
 }
 
