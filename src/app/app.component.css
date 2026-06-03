@@ -56,6 +56,11 @@ small {
       linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
       url('../assets/photo_upload_card_bg.jpg');
   }
+  &.dress_code_card {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+      url('../assets/dress_code_card_bg.png');
+  }
 }
 
 .card strong {
