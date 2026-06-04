@@ -5,18 +5,19 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   title = 'Amal & Sreena';
-  googleDriveUploadUrl = 'https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID?usp=sharing';
+  weddingPhotoAlbumUrl = 'https://drive.google.com/drive/folders/1V3EAN7okP-FnAz0YSlyxYMuQ_GGpqOV7?usp=sharing';
+  receptionPhotoAlbumUrl = 'https://drive.google.com/drive/folders/1M_r5AcDbnNK8X1H_zsM9ve1F6XOVSwec?usp=sharing';
   weddingMapUrl = 'https://maps.app.goo.gl/CzY9825VpdgCGL8A7';
   receptionMapUrl = 'https://maps.app.goo.gl/XPcDztG8t2naX65r8';
 
   // TODO: replace with the couple's real WhatsApp number (country code + number, no +, spaces or dashes)
-  contactPhone = '919876543210';
+  contactPhone = '918089655197';
 
   weddingCalUrl = '';
   receptionCalUrl = '';
@@ -42,10 +43,12 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   };
 
   dressColors = [
-    { name: 'Emerald', hex: '#1f7a5c' },
+    { name: 'Olive', hex: '#d0c984' },
+    { name: 'Lavender', hex: '#f4bbff' },
     { name: 'Gold', hex: '#d4af37' },
     { name: 'Ivory', hex: '#f5efe0' },
-    { name: 'Maroon', hex: '#6e1f30' }
+    { name: 'Pink', hex: '#f9a09b' },
+    { name: 'Aqua', hex: '#a7dce6' },
   ];
 
   rsvp = { name: '', attending: 'yes', guests: 1, message: '' };
@@ -131,7 +134,19 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     this.countdownMinutes = Math.floor((clamped % (1000 * 60 * 60)) / (1000 * 60));
     this.countdownSeconds = Math.floor((clamped % (1000 * 60)) / 1000);
   }
-
+  enableUploadButton() {
+    return new Date() < new Date('2026-08-01T00:00:00');
+  }
+  activeFileLocation() {
+    const now = new Date();
+    const weddingDate = new Date('2026-08-28T12:25:00');
+    // const receptionDate = new Date('2026-08-29T16:00:00');
+    if (now < weddingDate) {
+      return this.weddingPhotoAlbumUrl;
+    } else {
+      return this.receptionPhotoAlbumUrl;
+    }
+  }
   ngOnDestroy() {
     if (this.countdownInterval) {
       clearInterval(this.countdownInterval);
