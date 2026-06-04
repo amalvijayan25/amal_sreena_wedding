@@ -1,52 +1,141 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   title = 'Amal & Sreena';
   googleDriveUploadUrl = 'https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_FOLDER_ID?usp=sharing';
   weddingMapUrl = 'https://maps.app.goo.gl/CzY9825VpdgCGL8A7';
   receptionMapUrl = 'https://maps.app.goo.gl/XPcDztG8t2naX65r8';
-  countdownDays: number=0;
-  countdownHours: number=0;
+
+  // TODO: replace with the couple's real WhatsApp number (country code + number, no +, spaces or dashes)
+  contactPhone = '919876543210';
+
+  weddingCalUrl = '';
+  receptionCalUrl = '';
+
+  countdownDays = 0;
+  countdownHours = 0;
+  countdownMinutes = 0;
+  countdownSeconds = 0;
   private countdownInterval: any;
+  private observer?: IntersectionObserver;
 
   wedding = {
     date: 'Friday, 28 August 2026',
-    time: '12:25 PM - 1:30 PM',
-    location: '<strong>Hill Palace Auditorium</strong>, <small>Chembra, Palakkad</small>'
+    time: '12:25 PM – 1:30 PM',
+    venue: 'Hill Palace Auditorium',
+    place: 'Chembra, Palakkad'
   };
   reception = {
     date: 'Saturday, 29 August 2026',
-    time: '4:00 PM - 9:00 PM',
-    location: '<strong>Indrapuri Auditorium</strong>, <small>Thiruvananthapuram</small>'
+    time: '4:00 PM – 9:00 PM',
+    venue: 'Indrapuri Auditorium',
+    place: 'Attukal, Thiruvananthapuram'
   };
 
-  constructor() {
+  dressColors = [
+    { name: 'Emerald', hex: '#1f7a5c' },
+    { name: 'Gold', hex: '#d4af37' },
+    { name: 'Ivory', hex: '#f5efe0' },
+    { name: 'Maroon', hex: '#6e1f30' }
+  ];
+
+  rsvp = { name: '', attending: 'yes', guests: 1, message: '' };
+
+  // UTC times (IST −5:30) so calendars are unambiguous on every device
+  private events = {
+    wedding: {
+      title: 'Amal & Sreena — Wedding Ceremony',
+      startUtc: '20260828T065500Z', endUtc: '20260828T080000Z',
+      startLocal: '20260828T122500', endLocal: '20260828T133000',
+      location: 'Hill Palace Auditorium, Chembra, Palakkad',
+      details: 'Join us as Amal & Sreena tie the sacred knot. We would be honoured to have you there.'
+    },
+    reception: {
+      title: 'Amal & Sreena — Reception Party',
+      startUtc: '20260829T103000Z', endUtc: '20260829T153000Z',
+      startLocal: '20260829T160000', endLocal: '20260829T210000',
+      location: 'Indrapuri Auditorium, Attukal, Thiruvananthapuram',
+      details: 'On the next evening, we are hosting a party with great food and company.'
+    }
+  };
+
+  constructor(private host: ElementRef<HTMLElement>) {
+    this.weddingCalUrl = this.buildGoogleCalUrl(this.events.wedding);
+    this.receptionCalUrl = this.buildGoogleCalUrl(this.events.reception);
     this.calculateCountdown();
   }
 
   ngOnInit() {
-    this.countdownInterval = setInterval(() => {
-      this.calculateCountdown();
-    }, 1000);
+    this.countdownInterval = setInterval(() => this.calculateCountdown(), 1000);
+  }
+
+  ngAfterViewInit() {
+    const els = this.host.nativeElement.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('in'));
+      return;
+    }
+    this.observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(el => this.observer!.observe(el));
+  }
+
+  private buildGoogleCalUrl(e: { title: string; startLocal: string; endLocal: string; location: string; details: string }): string {
+    const params = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: e.title,
+      dates: `${e.startLocal}/${e.endLocal}`,
+      ctz: 'Asia/Kolkata',
+      location: e.location,
+      details: e.details
+    });
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
+  }
+
+  submitRsvp() {
+    const r = this.rsvp;
+    const attending = r.attending === 'yes' ? 'Joyfully accepts ✅' : 'Regretfully declines';
+    const lines = [
+      '💍 RSVP — Amal & Sreena Wedding',
+      '',
+      `Name: ${r.name || '(not given)'}`,
+      `Response: ${attending}`,
+      `Guests: ${r.guests}`,
+      r.message ? `Message: ${r.message}` : ''
+    ].filter(Boolean);
+    const url = `https://wa.me/${this.contactPhone}?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.open(url, '_blank');
   }
 
   calculateCountdown() {
     const weddingDate = new Date('2026-08-28T12:25:00');
-    const now = new Date();
-    const diffMs = weddingDate.getTime() - now.getTime();
-    this.countdownDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    this.countdownHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const diffMs = weddingDate.getTime() - new Date().getTime();
+    const clamped = Math.max(diffMs, 0);
+    this.countdownDays = Math.floor(clamped / (1000 * 60 * 60 * 24));
+    this.countdownHours = Math.floor((clamped % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    this.countdownMinutes = Math.floor((clamped % (1000 * 60 * 60)) / (1000 * 60));
+    this.countdownSeconds = Math.floor((clamped % (1000 * 60)) / 1000);
   }
 
   ngOnDestroy() {
     if (this.countdownInterval) {
       clearInterval(this.countdownInterval);
     }
+    this.observer?.disconnect();
   }
 }
