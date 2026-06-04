@@ -1,108 +1,647 @@
-.countdown {
+/* =======================================================
+   Amal & Sreena — light, elegant traditional invite
+   ======================================================= */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ---- Whole-site blurred illustration background ---- */
+.bg-blur {
+  position: fixed;
+  inset: -60px;
+  z-index: -3;
+  background: url('../assets/background.png') center top / cover no-repeat;
+  /* soft blur but clearly visible as the backdrop */
+  filter: blur(13px) saturate(1.14) brightness(1.02);
+  transform: scale(1.1);
+  opacity: 1;
+}
+/* Thin cream scrim — just enough to keep text readable */
+.bg-tint {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(1000px 700px at 50% -5%, rgba(251, 247, 239, 0.20), transparent 60%),
+    linear-gradient(180deg,
+      rgba(251, 247, 239, 0.20) 0%,
+      rgba(248, 242, 231, 0.12) 34%,
+      rgba(245, 238, 225, 0.18) 100%);
+}
+
+/* ---- Decorative gold bands ---- */
+.top-band,
+.bottom-band {
+  height: 8px;
+  width: 100%;
+  background:
+    repeating-linear-gradient(90deg, var(--gold) 0 14px, transparent 14px 28px),
+    linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+  opacity: 0.7;
+}
+.top-band { margin-bottom: 6px; }
+.bottom-band { margin-top: 6px; }
+
+main {
+  width: min(1040px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 30px 0 64px;
+}
+
+/* ---- Gold divider svg ---- */
+.divider {
+  display: block;
+  width: 280px;
+  max-width: 80%;
+  height: 38px;
+  margin: 14px auto;
+  color: var(--gold);
+}
+
+/* =================== HERO =================== */
+.hero {
+  position: relative;
   text-align: center;
-  padding: 20px 0;
-  background: rgba(152, 251, 152, 0.1);
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 24px 0 8px;
 }
 
-.countdown p {
+.eyebrow {
   margin: 0;
-  font-size: 1.2rem;
-  color: #8B4513;
-  font-weight: bold;
-  display: inline-block;
-  padding: 10px 20px;
-  border: 2px solid #8B4513;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  animation: tick 1s ease-in-out infinite;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  color: var(--gold-deep);
 }
 
+.couple { margin: 4px 0 6px; line-height: 1; }
+
+.couple .name {
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
+  color: var(--maroon);
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.65), 0 4px 22px rgba(184, 145, 47, 0.25);
+}
+/* clear, legible capital for the first letter of "Amal" (Great Vibes' A reads lowercase) */
+.couple .name .cap {
+  font-family: 'Parisienne', cursive;
+}
+
+/* keep hero / verse text crisp where it sits directly on the background */
+.hero .invite-hosts,
+.hero .invite-request,
+.hero .date-line,
+.hero .count-label,
+.hero .hero-blurb,
+.verse .verse-text {
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 0 10px rgba(255, 255, 255, 0.55);
+}
+
+/* formal family invitation line */
+.invite-hosts {
+  margin: 0 0 8px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.98rem, 1.7vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--maroon);
+}
+.invite-request {
+  margin: 0 auto;
+  max-width: 540px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.couple .amp {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--gold);
+  margin: -0.1em 0;
+}
+
+.date-line {
+  margin: 6px 0 22px;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--maroon);
+}
+
+/* Temple-arch framed hero illustration */
+.hero-frame {
+  margin: 8px auto 0;
+  width: min(360px, 82%);
+  padding: 12px;
+  border-radius: 50% 50% 18px 18px / 30% 30% 5% 5%;
+  background: linear-gradient(180deg, #fffdf8, #f6eeddcc);
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 0 0 5px rgba(184, 145, 47, 0.12), var(--glass-shadow);
+  overflow: hidden;
+}
+.hero-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50% 50% 10px 10px / 30% 30% 4% 4%;
+}
+
+.hero-blurb {
+  margin: 26px auto 0;
+  max-width: 560px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.22rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+/* couple portrait in the hero */
+.couple-photo {
+  margin: 20px auto 22px;
+  width: min(340px, 80%);
+  aspect-ratio: 4 / 5;
+  padding: 8px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fffdf8, #f6eedd);
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 0 0 5px rgba(184, 145, 47, 0.12), var(--glass-shadow);
+  overflow: hidden;
+}
+.couple-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 15px;
+}
+
+/* engagement / rings photo above the verse */
+.verse-photo {
+  margin: 0 auto 24px;
+  width: min(300px, 72%);
+  aspect-ratio: 4 / 5;
+  padding: 7px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fffdf8, #f6eedd);
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 0 0 4px rgba(184, 145, 47, 0.12), var(--glass-shadow);
+  overflow: hidden;
+}
+.verse-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 13px;
+}
+
+/* =================== SECTION TITLE =================== */
+.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: 0.04em;
+  margin: 0 0 22px;
+  color: var(--maroon);
+}
+
+.kicker {
+  margin: 0 0 6px;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--gold-deep);
+}
+
+/* =================== COUNTDOWN (in hero) =================== */
+.count-label {
+  margin: 4px 0 14px;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--gold-deep);
+}
+
+.count-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.hero .count-grid { margin-bottom: 30px; }
+
+.count-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 6px 14px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.6));
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 26px rgba(110, 31, 48, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.count-cell .num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 7vw, 2.7rem);
+  font-weight: 700;
+  color: var(--maroon);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+/* tiny gold underline under each number */
+.count-cell .num::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 9px auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 2px;
+}
+.count-cell .lbl {
+  margin-top: 8px;
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+/* highlight + gentle tick on the seconds tile */
+.count-cell.secs .num { color: var(--gold-deep); }
+.count-cell.secs .num { animation: tick 1s ease-in-out infinite; }
 @keyframes tick {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.07); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .count-cell.secs .num { animation: none; }
 }
 
-small {
-  font-size: 0.8em;
-  color: #A0522D;
-}
-
-.card {
-  background-size: cover;
-  background-position: center;
-  background-color: #ffffff; /* Fallback color */
-  
-  /* Base card background with built-in tint */
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-    url('../assets/card-background.jpeg');
-
-  &.wedding_card {
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-      url('../assets/wedding_card_bg.png');
-  }
-
-  &.reception_card {
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-      url('../assets/reception_card_bg.png');
-  }
-
-  &.photo_upload_card {
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-      url('../assets/photo_upload_card_bg.jpg');
-  }
-  &.dress_code_card {
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-      url('../assets/dress_code_card_bg.png');
-  }
-}
-
-.card strong {
-  color: #8B4513;
-}
-
-.card p:first-of-type {
-  margin-bottom: 16px;
-}
-
-.card ul {
-  margin-top: 12px;
-}
-
-.weds-text {
-  font-size: 0.45em;
-}
-
-.button-group {
-  margin-top: 16px;
+/* =================== VERSE =================== */
+.verse {
   text-align: center;
+  margin: 64px auto;
+  max-width: 720px;
+}
+.verse .lotus { width: 56px; height: 38px; color: var(--gold); margin-bottom: 14px; }
+.verse-text {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  line-height: 1.6;
+  color: var(--maroon);
+}
+
+/* =================== UNIFIED EVENT CARDS =================== */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 40px;
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  align-items: stretch;
+  border-radius: 26px;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  backdrop-filter: blur(20px) saturate(130%);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(110, 31, 48, 0.16);
+}
+.event-card.reverse .card-media { order: 2; }
+.event-card.reverse .card-body { order: 1; }
+
+/* image sits inside the box, blended (no separate panel) */
+.card-media {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px;
+  background: transparent;
+}
+.card-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  /* removes the white / grey rectangle baked into the illustration
+     so only the subject shows, blending into the card */
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 12px 22px rgba(74, 47, 42, 0.16));
+}
+
+/* already-transparent illustration — blend normally, no multiply */
+.card-media.cut img {
+  mix-blend-mode: normal;
+}
+
+/* the photo collage is a full poster — keep it framed, not blended */
+.card-media.raw img {
+  mix-blend-mode: normal;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+}
+
+.card-body { padding: 36px 38px; }
+.card-body h2 {
+  margin: 0 0 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--maroon);
+}
+.lead {
+  margin: 0 0 18px;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+/* info list */
+.info { list-style: none; margin: 0 0 24px; padding: 0; }
+.info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(184, 145, 47, 0.18);
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.info li:last-child { border-bottom: none; }
+.info .ico { font-size: 1.05rem; line-height: 1.4; }
+.info strong { color: var(--maroon); font-weight: 600; }
+.info small { color: var(--text-faint); }
+
+/* swatches */
+.swatches { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 6px; }
+.swatch { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.swatch .dot {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 12px rgba(74, 47, 42, 0.18);
+}
+.swatch .sw-name {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* =================== BUTTONS =================== */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .button {
-  display: inline-block;
-  padding: 10px 16px;
-  background: transparent;
-  color: #8B4513;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 22px;
+  border-radius: 14px;
   text-decoration: none;
-  border: 2px solid #8B4513;
-  border-radius: 12px;
-  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: #fdf6e8;
+  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-deep) 100%);
+  border: 1px solid rgba(184, 145, 47, 0.5);
+  box-shadow: 0 8px 20px rgba(110, 31, 48, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.2s ease;
 }
-
+.button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.5s ease;
+}
 .button:hover {
-  background: #8B4513;
-  color: #fff;
-  -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 30px rgba(110, 31, 48, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.button:hover::after { left: 130%; }
+
+.button .bi {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
 }
 
-footer p {
-  margin: 0;
-  padding-top: 28px;
+/* secondary / outline variant */
+.button.ghost {
+  color: var(--maroon);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--gold);
+  box-shadow: 0 6px 16px rgba(110, 31, 48, 0.08);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.button.ghost:hover { background: rgba(255, 255, 255, 0.82); }
+
+/* =================== FOOTER =================== */
+.footer { text-align: center; margin-top: 64px; }
+.footer .thanks {
+  margin: 6px 0;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+.footer .thanks.small { font-size: 0.78rem; margin-top: 10px; }
+.footer .sign {
+  margin: 4px 0;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  color: var(--maroon);
+  text-shadow: 0 4px 20px rgba(184, 145, 47, 0.3);
+}
+
+/* =================== SCROLL REVEAL =================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* =================== RSVP =================== */
+.rsvp {
+  margin: 70px auto 0;
+  max-width: 620px;
+  text-align: center;
+  padding: 40px 36px;
+  border-radius: 26px;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+  backdrop-filter: blur(22px) saturate(130%);
+  box-shadow: var(--glass-shadow);
+}
+.rsvp-sub {
+  margin: 0 0 26px;
+  color: var(--text-soft);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+}
+.rsvp-sub strong { color: var(--maroon); }
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+.rsvp-row {
+  display: flex;
+  gap: 16px;
+}
+.field { display: flex; flex-direction: column; gap: 7px; flex: 1; }
+.field.small { flex: 0 0 96px; }
+.field > span {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.field > span em { text-transform: none; letter-spacing: 0; color: var(--text-faint); font-style: italic; }
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.7);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+.rsvp-form textarea { resize: vertical; }
+.rsvp-form input::placeholder,
+.rsvp-form textarea::placeholder { color: rgba(74, 47, 42, 0.45); }
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 145, 47, 0.18);
+}
+
+.rsvp-btn {
+  margin-top: 8px;
+  align-self: center;
+  background: linear-gradient(135deg, #25b14c, #128c7e); /* WhatsApp green */
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 24px rgba(18, 140, 126, 0.28);
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 760px) {
+  /* portrait background gets zoomed/cropped on phones — soften the blur
+     and the scrim so it reads like the desktop, not a heavy smear */
+  .bg-blur {
+    filter: blur(9px) saturate(1.08) brightness(1.03);
+    transform: scale(1.06);
+  }
+  .bg-tint {
+    background:
+      radial-gradient(700px 500px at 50% -5%, rgba(251, 247, 239, 0.26), transparent 60%),
+      linear-gradient(180deg,
+        rgba(251, 247, 239, 0.30) 0%,
+        rgba(248, 242, 231, 0.24) 34%,
+        rgba(245, 238, 225, 0.30) 100%);
+  }
+
+  .event-card {
+    grid-template-columns: 1fr;
+  }
+  .event-card.reverse .card-media { order: 1; }
+  .event-card.reverse .card-body { order: 2; }
+  .card-media {
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .event-card.reverse .card-media {
+    border-left: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .card-media img { max-height: 300px; }
+  .card-body { padding: 28px 26px; }
+}
+
+/* counter stays a single row of 4 on phones, just smaller */
+@media (max-width: 480px) {
+  .count-grid { gap: 8px; max-width: 100%; }
+  .count-cell { padding: 14px 3px 11px; border-radius: 13px; }
+  .count-cell .num::after { width: 16px; margin-top: 7px; }
+  .count-cell .lbl { font-size: 0.52rem; letter-spacing: 0.08em; margin-top: 6px; }
+}
+
+@media (max-width: 340px) {
+  .count-cell .lbl { font-size: 0.46rem; }
 }

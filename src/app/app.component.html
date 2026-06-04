@@ -1,63 +1,217 @@
-<main>
-  <div class="countdown">
-    <p>{{ countdownDays }} days and {{ countdownHours }} hours until the wedding!</p>
-  </div>
+<!-- Blurred background built from the first illustration -->
+<div class="bg-blur" aria-hidden="true"></div>
+<div class="bg-tint" aria-hidden="true"></div>
 
-  <header>
-    <p>Save the date for a retro-future celebration</p>
-    <h1>Amal<br><span class="weds-text">Weds</span><br>Sreena</h1>
-    <p>Join us for a 90s + 2K inspired wedding weekend full of bright energy, music, and memories.</p>
-  </header>
+<div class="page">
 
-  <section class="section-grid">
-    <article class="card wedding_card">
-      <h2>Wedding Ceremony</h2>
-      <p>We would be honored to have you with us as we begin our life together.</p>
-      <ul>
-        <li><strong>Date:</strong> {{ wedding.date }}</li>
-        <li><strong>Time:</strong> {{ wedding.time }}</li>
-        <li><strong>Location:</strong> <span [innerHTML]="wedding.location"></span></li>
-      </ul>
-      <div class="button-group">
-        <a class="button" [href]="weddingMapUrl" target="_blank" rel="noreferrer">
-          Get Venue Link
-        </a>
+  <div class="top-band" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+      <p class="invite-hosts">Mr. &amp; Mrs. Vijayan &nbsp;&middot;&nbsp; together with &nbsp;&middot;&nbsp; Mr. &amp; Mrs. Sreenarayan</p>
+      <p class="invite-request">request the honour of your presence at the wedding of their beloved children</p>
+
+      <svg class="divider" viewBox="0 0 320 40" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M10 20 H120" />
+          <path d="M200 20 H310" />
+          <path d="M120 20 q10 -14 20 0 q10 14 20 0" />
+          <path d="M160 20 q10 -14 20 0 q10 14 20 0" />
+        </g>
+        <circle cx="160" cy="20" r="4" fill="currentColor" />
+        <circle cx="120" cy="20" r="2.4" fill="currentColor" />
+        <circle cx="200" cy="20" r="2.4" fill="currentColor" />
+      </svg>
+
+      <h1 class="couple">
+        <span class="name"><span class="cap">A</span>mal</span>
+        <span class="amp">&amp;</span>
+        <span class="name">Sreena</span>
+      </h1>
+
+      <p class="date-line">28 · 08 · 2026 &nbsp;|&nbsp; Palakkad, Kerala</p>
+
+      <p class="count-label">Counting down to the big day</p>
+      <div class="count-grid">
+        <div class="count-cell"><span class="num">{{ countdownDays }}</span><span class="lbl">Days</span></div>
+        <div class="count-cell"><span class="num">{{ countdownHours | number:'2.0-0' }}</span><span class="lbl">Hours</span></div>
+        <div class="count-cell"><span class="num">{{ countdownMinutes | number:'2.0-0' }}</span><span class="lbl">Minutes</span></div>
+        <div class="count-cell secs"><span class="num">{{ countdownSeconds | number:'2.0-0' }}</span><span class="lbl">Seconds</span></div>
       </div>
-    </article>
 
-    <article class="card reception_card">
-      <h2>Reception Party</h2>
-      <p>On the next day, we'll be hosting a reception party for great food, and great company.</p>
-      <ul>
-        <li><strong>Date:</strong> {{ reception.date }}</li>
-        <li><strong>Time:</strong> {{ reception.time }}</li>
-        <li><strong>Location:</strong> <span [innerHTML]="reception.location"></span></li>
-      </ul>
-      <div class="button-group">
-        <a class="button" [href]="receptionMapUrl" target="_blank" rel="noreferrer">
-          Get Venue Link
-        </a>
-      </div>
-    </article>
+      <p class="hero-blurb">
+        We invite you to share in our joy as we begin our journey together,
+        blessed by tradition, family, and love.
+      </p>
+    </header>
 
-    <article class="card photo_upload_card">
-      <h2>Photo Upload</h2>
-      <p>Share your favorite moments from our wedding by uploading your images to our Google Drive album.</p>
-      <div class="button-group">
-        <a class="button" [href]="googleDriveUploadUrl" target="_blank" rel="noreferrer">
-          Upload Photos
-        </a>
-      </div>
-    </article>
+    <!-- ===== INVITATION VERSE ===== -->
+    <section class="verse reveal">
+      <svg class="lotus" viewBox="0 0 60 40" aria-hidden="true">
+        <g fill="currentColor">
+          <path d="M30 36 C20 30 14 22 30 6 C46 22 40 30 30 36 Z" opacity="0.9"/>
+          <path d="M30 36 C16 34 8 26 6 14 C24 16 30 26 30 36 Z" opacity="0.6"/>
+          <path d="M30 36 C44 34 52 26 54 14 C36 16 30 26 30 36 Z" opacity="0.6"/>
+        </g>
+      </svg>
+      <p class="verse-text">
+        “Two souls, one heart — woven together by destiny,
+        celebrated in colour, music and the blessings of those we love.”
+      </p>
+    </section>
 
-    <article class="card dress_code_card">
-      <h2>Dress Code</h2>
-      <p>Think pastel, traditional, elegent patterns, and nostalgic Y2K vibes.</p>
-      <p>Feel free to bring your favorite 90s or early 2000s style to the celebration.</p>
-    </article>
-  </section>
+    <!-- ===== EVENT CARDS ===== -->
+    <section class="cards">
 
-  <footer>
-    <p>We can’t wait to celebrate with you.</p>
-  </footer>
-</main>
+      <!-- Wedding Ceremony -->
+      <article class="event-card reveal">
+        <figure class="card-media cut">
+          <img src="assets/wedding_cut.png" alt="Tying of the thaali ceremony" />
+        </figure>
+        <div class="card-body">
+          <p class="kicker">The Muhurtham</p>
+          <h2>Wedding Ceremony</h2>
+          <p class="lead">We would be honoured to have you with us as we tie the sacred knot and begin our life together.</p>
+          <ul class="info">
+            <li><span class="ico">📅</span><span><strong>{{ wedding.date }}</strong></span></li>
+            <li><span class="ico">⏰</span><span>{{ wedding.time }}</span></li>
+            <li><span class="ico">📍</span><span><strong>{{ wedding.venue }}</strong><br><small>{{ wedding.place }}</small></span></li>
+          </ul>
+          <div class="btn-row">
+            <a class="button" [href]="weddingCalUrl" target="_blank" rel="noreferrer">
+              <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v3M17 2v3M3.5 8.5h17M5 5h14a1.5 1.5 0 0 1 1.5 1.5V19A1.5 1.5 0 0 1 19 20.5H5A1.5 1.5 0 0 1 3.5 19V6.5A1.5 1.5 0 0 1 5 5Z"/><path d="M9 13l2 2 4-4"/></svg>
+              Add to Calendar
+            </a>
+            <a class="button ghost" [href]="weddingMapUrl" target="_blank" rel="noreferrer">
+              <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              View Venue
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Reception -->
+      <article class="event-card reverse reveal">
+        <figure class="card-media cut">
+          <img src="assets/reception_cut.png" alt="Couple at the reception" />
+        </figure>
+        <div class="card-body">
+          <p class="kicker">The Celebration</p>
+          <h2>Reception Party</h2>
+          <p class="lead">On the next evening, we are hosting a party with great food and company.</p>
+          <ul class="info">
+            <li><span class="ico">📅</span><span><strong>{{ reception.date }}</strong></span></li>
+            <li><span class="ico">⏰</span><span>{{ reception.time }}</span></li>
+            <li><span class="ico">📍</span><span><strong>{{ reception.venue }}</strong><br><small>{{ reception.place }}</small></span></li>
+          </ul>
+          <div class="btn-row">
+            <a class="button" [href]="receptionCalUrl" target="_blank" rel="noreferrer">
+              <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v3M17 2v3M3.5 8.5h17M5 5h14a1.5 1.5 0 0 1 1.5 1.5V19A1.5 1.5 0 0 1 19 20.5H5A1.5 1.5 0 0 1 3.5 19V6.5A1.5 1.5 0 0 1 5 5Z"/><path d="M9 13l2 2 4-4"/></svg>
+              Add to Calendar
+            </a>
+            <a class="button ghost" [href]="receptionMapUrl" target="_blank" rel="noreferrer">
+              <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              View Venue
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dress Code -->
+      <article class="event-card reveal">
+        <figure class="card-media cut">
+          <img src="assets/dresscode_cut.png" alt="Guests in traditional attire" />
+        </figure>
+        <div class="card-body">
+          <p class="kicker">What to Wear</p>
+          <h2>Dress Code</h2>
+          <p class="lead">Embrace tradition with a modern touch — elegant ethnic wear in our wedding palette.</p>
+          <div class="swatches">
+            <div class="swatch" *ngFor="let c of dressColors">
+              <span class="dot" [style.background]="c.hex"></span>
+              <span class="sw-name">{{ c.name }}</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Photo Upload -->
+      <article class="event-card reverse reveal">
+        <figure class="card-media raw">
+          <img src="assets/photo_upload_card_bg.jpg" alt="Wedding ritual collage" />
+        </figure>
+        <div class="card-body">
+          <p class="kicker">Share the Memories</p>
+          <h2>Photo Upload</h2>
+          <p class="lead">Captured a beautiful moment? Add your photos to our shared album so we can relive the day through your eyes.</p>
+          <div class="btn-row">
+            <a class="button" [href]="googleDriveUploadUrl" target="_blank" rel="noreferrer">
+              <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V5M8 9l4-4 4 4"/><path d="M5 16v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
+              Upload Your Photos
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ===== RSVP ===== -->
+    <section class="rsvp reveal">
+      <p class="kicker">Be Our Guest</p>
+      <h2 class="section-title">Will You Join Us?</h2>
+      <p class="rsvp-sub">Kindly send your response by <strong>15 August 2026</strong>.</p>
+
+      <form class="rsvp-form" (ngSubmit)="submitRsvp()">
+        <label class="field">
+          <span>Your name</span>
+          <input type="text" name="name" [(ngModel)]="rsvp.name" placeholder="e.g. Anjali Menon" required>
+        </label>
+
+        <div class="rsvp-row">
+          <label class="field">
+            <span>Will you attend?</span>
+            <select name="attending" [(ngModel)]="rsvp.attending">
+              <option value="yes">Joyfully accept</option>
+              <option value="no">Regretfully decline</option>
+            </select>
+          </label>
+          <label class="field small">
+            <span>Guests</span>
+            <input type="number" name="guests" min="1" max="20" [(ngModel)]="rsvp.guests">
+          </label>
+        </div>
+
+        <label class="field">
+          <span>A note for the couple <em>(optional)</em></span>
+          <textarea name="message" rows="3" [(ngModel)]="rsvp.message" placeholder="Send your blessings…"></textarea>
+        </label>
+
+        <button type="submit" class="button rsvp-btn">
+          <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.5 9.5c.3 2.2 2.8 4.7 5 5l1.2-1.4 2 .8.3 2c-3.5.9-8.9-3.4-9.8-7.2l2-1.2 1 1.9-1.7 1.3" fill="none"/></svg>
+          Send RSVP via WhatsApp
+        </button>
+      </form>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer reveal">
+      <svg class="divider" viewBox="0 0 320 40" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M10 20 H120" />
+          <path d="M200 20 H310" />
+          <path d="M120 20 q10 -14 20 0 q10 14 20 0" />
+          <path d="M160 20 q10 -14 20 0 q10 14 20 0" />
+        </g>
+        <circle cx="160" cy="20" r="4" fill="currentColor" />
+      </svg>
+      <p class="thanks">With love &amp; gratitude</p>
+      <p class="sign">Amal &amp; Sreena</p>
+      <p class="thanks small">We can’t wait to celebrate with you.</p>
+    </footer>
+
+  </main>
+
+  <div class="bottom-band" aria-hidden="true"></div>
+</div>
