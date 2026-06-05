@@ -17,17 +17,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24.15.0'
       - run: npm ci
-      - run: npx ng build --configuration production --base-href /amal_sreena_wedding/
+      - run: npm run build
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/amal-sreena-wedding
-      - name: Configure GitHub Pages site
-        run: |
-          curl -sS -X PUT \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/amalvijayan25/amal_sreena_wedding/pages \
-            -d '{"source":{"branch":"gh-pages","path":"/"}}'
+          publish_dir: ./dist/angular22
