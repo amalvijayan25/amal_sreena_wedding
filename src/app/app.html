@@ -35,10 +35,10 @@
 
       <p class="count-label">Counting down to the big day</p>
       <div class="count-grid">
-        <div class="count-cell"><span class="num">{{ countdownDays }}</span><span class="lbl">Days</span></div>
-        <div class="count-cell"><span class="num">{{ countdownHours | number:'2.0-0' }}</span><span class="lbl">Hours</span></div>
-        <div class="count-cell"><span class="num">{{ countdownMinutes | number:'2.0-0' }}</span><span class="lbl">Minutes</span></div>
-        <div class="count-cell secs"><span class="num">{{ countdownSeconds | number:'2.0-0' }}</span><span class="lbl">Seconds</span></div>
+        <div class="count-cell"><span class="num">{{ countdownDays() }}</span><span class="lbl">Days</span></div>
+        <div class="count-cell"><span class="num">{{ countdownHours() | number:'2.0-0' }}</span><span class="lbl">Hours</span></div>
+        <div class="count-cell"><span class="num">{{ countdownMinutes() | number:'2.0-0' }}</span><span class="lbl">Minutes</span></div>
+        <div class="count-cell secs"><span class="num">{{ countdownSeconds() | number:'2.0-0' }}</span><span class="lbl">Seconds</span></div>
       </div>
 
       <p class="hero-blurb">
@@ -68,7 +68,7 @@
       <!-- Wedding Ceremony -->
       <article class="event-card reveal">
         <figure class="card-media cut">
-          <img src="assets/wedding_cut.png" alt="Tying of the thaali ceremony" />
+          <img src="../assets/wedding_cut.png" alt="Tying of the thaali ceremony" />
         </figure>
         <div class="card-body">
           <p class="kicker">The Muhurtham</p>
@@ -95,7 +95,7 @@
       <!-- Reception -->
       <article class="event-card reverse reveal">
         <figure class="card-media cut">
-          <img src="assets/reception_cut.png" alt="Couple at the reception" />
+          <img src="../assets/reception_cut.png" alt="Couple at the reception" />
         </figure>
         <div class="card-body">
           <p class="kicker">The Celebration</p>
@@ -122,7 +122,7 @@
       <!-- Dress Code -->
       <article class="event-card reveal">
         <figure class="card-media cut">
-          <img src="assets/dresscode_cut.png" alt="Guests in traditional attire" />
+          <img src="../assets/dresscode_cut.png" alt="Guests in traditional attire" />
         </figure>
         <div class="card-body">
           <p class="kicker">What to Wear</p>
@@ -142,7 +142,7 @@
       <!-- Photo Upload -->
       <article class="event-card reverse reveal">
         <figure class="card-media raw">
-          <img src="assets/photo_upload_card_bg.jpg" alt="Wedding ritual collage" />
+          <img src="../assets/photo_upload_card_bg.jpg" alt="Wedding ritual collage" />
         </figure>
         <div class="card-body">
           <p class="kicker">Share the Memories</p>
