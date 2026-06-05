@@ -340,9 +340,7 @@ main {
   transform: translateY(-4px);
   box-shadow: 0 26px 60px rgba(110, 31, 48, 0.16);
 }
-.event-card.reverse {
-  grid-template-columns: 0.82fr 1.18fr;
-}
+
 .event-card.reverse .card-media { order: 2; }
 .event-card.reverse .card-body { order: 1; }
 
