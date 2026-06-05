@@ -1,16 +1,15 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, ElementRef, OnInit, AfterViewInit, OnDestroy, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, FormsModule,],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [CommonModule, FormsModule],
+  templateUrl: './app.html',
+  styleUrl: './app.scss'
 })
-export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  title = 'Amal & Sreena';
+export class App implements OnInit, AfterViewInit, OnDestroy {
+  protected readonly title = signal('Amal & Sreena Wedding');
   weddingPhotoAlbumUrl = 'https://drive.google.com/drive/folders/1V3EAN7okP-FnAz0YSlyxYMuQ_GGpqOV7?usp=sharing';
   receptionPhotoAlbumUrl = 'https://drive.google.com/drive/folders/1M_r5AcDbnNK8X1H_zsM9ve1F6XOVSwec?usp=sharing';
   weddingMapUrl = 'https://maps.app.goo.gl/CzY9825VpdgCGL8A7';
@@ -22,10 +21,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   weddingCalUrl = '';
   receptionCalUrl = '';
 
-  countdownDays = 0;
-  countdownHours = 0;
-  countdownMinutes = 0;
-  countdownSeconds = 0;
+  countdownDays = signal(0);
+  countdownHours = signal(0);
+  countdownMinutes = signal(0);
+  countdownSeconds = signal(0);
   private countdownInterval: any;
   private observer?: IntersectionObserver;
 
@@ -129,10 +128,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     const weddingDate = new Date('2026-08-28T12:25:00');
     const diffMs = weddingDate.getTime() - new Date().getTime();
     const clamped = Math.max(diffMs, 0);
-    this.countdownDays = Math.floor(clamped / (1000 * 60 * 60 * 24));
-    this.countdownHours = Math.floor((clamped % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    this.countdownMinutes = Math.floor((clamped % (1000 * 60 * 60)) / (1000 * 60));
-    this.countdownSeconds = Math.floor((clamped % (1000 * 60)) / 1000);
+    this.countdownDays.set(Math.floor(clamped / (1000 * 60 * 60 * 24)));
+    this.countdownHours.set(Math.floor((clamped % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+    this.countdownMinutes.set(Math.floor((clamped % (1000 * 60 * 60)) / (1000 * 60)));
+    this.countdownSeconds.set(Math.floor((clamped % (1000 * 60)) / 1000));
   }
   enableUploadButton() {
     return new Date() < new Date('2026-08-01T00:00:00');
