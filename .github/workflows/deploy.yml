@@ -20,11 +20,11 @@ jobs:
           node-version: '24.15.0'
       - run: npm ci
       - run: npm run build
-      - run: touch ./dist/angular22/.nojekyll
+      - run: touch ./dist/amal-sreena-wedding/.nojekyll
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/angular22
+          publish_dir: ./dist/amal-sreena-wedding
       - name: Configure GitHub Pages
         run: |
           curl -s -X POST \

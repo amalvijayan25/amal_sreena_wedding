@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "angular22": {
+    "amal-sreena-wedding": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -64,10 +64,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular22:build:production"
+              "buildTarget": "amal-sreena-wedding:build:production"
             },
             "development": {
-              "buildTarget": "angular22:build:development"
+              "buildTarget": "amal-sreena-wedding:build:development"
             }
           },
           "defaultConfiguration": "development"

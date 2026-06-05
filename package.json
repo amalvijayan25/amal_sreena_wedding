@@ -1,5 +1,5 @@
 {
-  "name": "angular22",
+  "name": "amal-sreena-wedding",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist/angular22"
+    "deploy": "gh-pages -d dist/amal-sreena-wedding"
   },
   "private": true,
   "packageManager": "npm@11.13.0",
