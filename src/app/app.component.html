@@ -129,10 +129,12 @@
           <h2>Dress Code</h2>
           <p class="lead">Embrace tradition with a modern touch — elegant ethnic wear in our wedding palette.</p>
           <div class="swatches">
-            <div class="swatch" *ngFor="let c of dressColors">
-              <span class="dot" [style.background]="c.hex"></span>
-              <span class="sw-name">{{ c.name }}</span>
-            </div>
+            @for (c of dressColors; track c) {
+              <div class="swatch">
+                <span class="dot" [style.background]="c.hex"></span>
+                <span class="sw-name">{{ c.name }}</span>
+              </div>
+            }
           </div>
         </div>
       </article>
