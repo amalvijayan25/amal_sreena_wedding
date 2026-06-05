@@ -20,7 +20,15 @@ jobs:
           node-version: '24.15.0'
       - run: npm ci
       - run: npm run build
+      - run: touch ./dist/angular22/.nojekyll
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/angular22
+      - name: Configure GitHub Pages
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/amalvijayan25/amal_sreena_wedding/pages \
+            -d '{"source":{"branch":"gh-pages","path":"/"}}' || true
