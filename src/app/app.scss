@@ -12,7 +12,7 @@
   position: fixed;
   inset: -60px;
   z-index: -3;
-  background: url('../assets/background.png') center top / cover no-repeat;
+  background: #f2e8d6 url('../assets/background-blur.webp') center top / cover no-repeat;
   /* soft blur but clearly visible as the backdrop */
   filter: blur(6.5px) saturate(1.14) brightness(0.82);
   transform: scale(1.1);
