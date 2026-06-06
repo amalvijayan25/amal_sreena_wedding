@@ -186,6 +186,15 @@
         </div>
 
         <label class="field">
+          <span>Which event(s) will you join?</span>
+          <select name="events" [(ngModel)]="rsvp.events">
+            <option value="both">Both — Wedding &amp; Reception</option>
+            <option value="wedding">Wedding Ceremony only</option>
+            <option value="reception">Reception only</option>
+          </select>
+        </label>
+
+        <label class="field">
           <span>A note for the couple <em>(optional)</em></span>
           <textarea name="message" rows="3" [(ngModel)]="rsvp.message" placeholder="Send your blessings…"></textarea>
         </label>
