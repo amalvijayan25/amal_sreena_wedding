@@ -12,7 +12,7 @@
   position: fixed;
   inset: -60px;
   z-index: -3;
-  background: url('../assets/background.png') center top / cover no-repeat;
+  background: #f2e8d6 url('../assets/background-blur.webp') center top / cover no-repeat;
   /* soft blur but clearly visible as the backdrop */
   filter: blur(6.5px) saturate(1.14) brightness(0.82);
   transform: scale(1.1);
@@ -56,16 +56,24 @@ main {
   display: block;
   width: 280px;
   max-width: 80%;
-  height: 38px;
-  margin: 14px auto;
+  height: 30px;
+  margin: 8px auto;
   color: var(--gold);
 }
 
 /* =================== HERO =================== */
+/* hero + verse fill the first viewport so the cards start on the next screen */
+.first-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .hero {
   position: relative;
   text-align: center;
-  padding: 24px 0 8px;
+  padding: 12px 0 6px;
 }
 
 .eyebrow {
@@ -77,13 +85,13 @@ main {
   color: var(--gold-deep);
 }
 
-.couple { margin: 4px 0 6px; line-height: 1; }
+.couple { margin: 2px 0 2px; line-height: 0.98; }
 
 .couple .name {
   display: block;
   font-family: 'Great Vibes', cursive;
   font-weight: 400;
-  font-size: clamp(3.4rem, 9vw, 6.5rem);
+  font-size: clamp(2.8rem, 6.4vw, 4.7rem);
   color: var(--maroon);
   text-shadow: 0 2px 12px rgba(255, 255, 255, 0.65), 0 4px 22px rgba(184, 145, 47, 0.25);
 }
@@ -131,7 +139,7 @@ main {
 }
 
 .date-line {
-  margin: 6px 0 22px;
+  margin: 4px 0 12px;
   font-family: 'Cormorant Garamond', serif;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -159,11 +167,11 @@ main {
 }
 
 .hero-blurb {
-  margin: 26px auto 0;
+  margin: 14px auto 0;
   max-width: 560px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.22rem;
-  line-height: 1.7;
+  font-size: 1.12rem;
+  line-height: 1.6;
   color: var(--text-soft);
 }
 
@@ -248,7 +256,7 @@ main {
   margin: 0 auto;
 }
 
-.hero .count-grid { margin-bottom: 30px; }
+.hero .count-grid { margin-bottom: 14px; }
 
 .count-cell {
   position: relative;
@@ -302,7 +310,7 @@ main {
 /* =================== VERSE =================== */
 .verse {
   text-align: center;
-  margin: 64px auto;
+  margin: 36px auto 48px;
   max-width: 720px;
 }
 .verse .lotus { width: 56px; height: 38px; color: var(--gold); margin-bottom: 14px; }
@@ -325,7 +333,7 @@ main {
 
 .event-card {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
+  grid-template-columns: 1fr 1fr;
   align-items: stretch;
   border-radius: 26px;
   overflow: hidden;
@@ -436,8 +444,8 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  padding: 12px 22px;
+  gap: 8px;
+  padding: 12px 18px;
   border-radius: 14px;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;

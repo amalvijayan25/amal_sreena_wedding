@@ -8,6 +8,9 @@
 
   <main>
 
+    <!-- ===== FIRST SCREEN (hero + verse fill one viewport) ===== -->
+    <div class="first-screen">
+
     <!-- ===== HERO ===== -->
     <header class="hero">
       <p class="invite-hosts">Mr. &amp; Mrs. Vijayan &nbsp;&middot;&nbsp; together with &nbsp;&middot;&nbsp; Mr. &amp; Mrs. Sreenarayan</p>
@@ -61,6 +64,8 @@
         celebrated in colour, music and the blessings of those we love.”
       </p>
     </section>
+
+    </div><!-- /first-screen -->
 
     <!-- ===== EVENT CARDS ===== -->
     <section class="cards">
@@ -169,7 +174,7 @@
       <form class="rsvp-form" (ngSubmit)="submitRsvp()">
         <label class="field">
           <span>Your name</span>
-          <input type="text" name="name" [(ngModel)]="rsvp.name" placeholder="e.g. Anjali Menon" required>
+          <input type="text" name="name" [(ngModel)]="rsvp.name" placeholder="e.g. Amritha VS" required>
         </label>
 
         <div class="rsvp-row">
@@ -185,6 +190,15 @@
             <input type="number" name="guests" min="1" max="20" [(ngModel)]="rsvp.guests">
           </label>
         </div>
+
+        <label class="field">
+          <span>Which event(s) will you join?</span>
+          <select name="events" [(ngModel)]="rsvp.events">
+            <option value="both">Both — Wedding &amp; Reception</option>
+            <option value="wedding">Wedding Ceremony only</option>
+            <option value="reception">Reception only</option>
+          </select>
+        </label>
 
         <label class="field">
           <span>A note for the couple <em>(optional)</em></span>

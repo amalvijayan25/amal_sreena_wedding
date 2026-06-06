@@ -1,0 +1,8 @@
+{
+  "name": "amal-sreena-wedding",
+  "compatibility_date": "2026-06-05",
+  "assets": {
+    "directory": "./dist/amal-sreena-wedding/browser",
+    "not_found_handling": "single-page-application"
+  }
+}

@@ -50,7 +50,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     { name: 'Aqua', hex: '#a7dce6' },
   ];
 
-  rsvp = { name: '', attending: 'yes', guests: 1, message: '' };
+  rsvp = { name: '', attending: 'yes', events: 'both', guests: 1, message: '' };
 
   // UTC times (IST −5:30) so calendars are unambiguous on every device
   private events = {
@@ -112,11 +112,17 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   submitRsvp() {
     const r = this.rsvp;
     const attending = r.attending === 'yes' ? 'Joyfully accepts ✅' : 'Regretfully declines';
+    const eventLabels: { [key: string]: string } = {
+      both: 'Wedding Ceremony & Reception',
+      wedding: 'Wedding Ceremony only',
+      reception: 'Reception only'
+    };
     const lines = [
       '💍 RSVP — Amal & Sreena Wedding',
       '',
       `Name: ${r.name || '(not given)'}`,
       `Response: ${attending}`,
+      `Attending: ${eventLabels[r.events] || r.events}`,
       `Guests: ${r.guests}`,
       r.message ? `Message: ${r.message}` : ''
     ].filter(Boolean);
