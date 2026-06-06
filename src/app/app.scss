@@ -62,6 +62,14 @@ main {
 }
 
 /* =================== HERO =================== */
+/* hero + verse fill the first viewport so the cards start on the next screen */
+.first-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .hero {
   position: relative;
   text-align: center;
