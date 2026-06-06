@@ -42,12 +42,11 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   };
 
   dressColors = [
-    { name: 'Olive', hex: '#d0c984' },
-    { name: 'Lavender', hex: '#f4bbff' },
-    { name: 'Gold', hex: '#d4af37' },
-    { name: 'Ivory', hex: '#f5efe0' },
-    { name: 'Pink', hex: '#f9a09b' },
-    { name: 'Aqua', hex: '#a7dce6' },
+    { name: 'Brown', hex: '#4A2018' },
+    { name: 'Ivory', hex: '#F5EDD8' },
+    { name: 'Mustard', hex: '#C89020' },
+    { name: 'Orange', hex: '#B85A1A' },
+    { name: 'Olive', hex: '#3D5E50' }
   ];
 
   rsvp = { name: '', attending: 'yes', events: 'both', guests: 1, message: '' };
