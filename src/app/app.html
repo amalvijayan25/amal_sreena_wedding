@@ -204,15 +204,16 @@
             <input type="number" name="guests" min="1" max="20" [(ngModel)]="rsvp.guests">
           </label>
         </div>
-
-        <label class="field">
-          <span>Which event(s) will you join?</span>
-          <select name="events" [(ngModel)]="rsvp.events">
-            <option value="both">Both — Wedding &amp; Reception</option>
-            <option value="wedding">Wedding Ceremony only</option>
-            <option value="reception">Reception only</option>
-          </select>
-        </label>
+        @if(rsvp.attending === 'yes'){
+          <label class="field">
+            <span>Which event(s) will you join?</span>
+            <select name="events" [(ngModel)]="rsvp.events">
+              <option value="both">Both — Wedding &amp; Reception</option>
+              <option value="wedding">Wedding Ceremony only</option>
+              <option value="reception">Reception only</option>
+            </select>
+          </label>
+        }
 
         <label class="field">
           <span>A note for the couple <em>(optional)</em></span>
@@ -221,7 +222,7 @@
 
         <button type="submit" class="button rsvp-btn">
           <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.5 9.5c.3 2.2 2.8 4.7 5 5l1.2-1.4 2 .8.3 2c-3.5.9-8.9-3.4-9.8-7.2l2-1.2 1 1.9-1.7 1.3" fill="none"/></svg>
-          Send RSVP via WhatsApp
+          Let us know
         </button>
       </form>
     </section>
