@@ -132,10 +132,20 @@
         </figure>
         <div class="card-body">
           <p class="kicker">What to Wear</p>
-          <h2>Dress Code</h2>
+          <h2>Wedding Attire</h2>
           <p class="lead">Embrace tradition with a modern touch — elegant ethnic wear in our wedding palette.</p>
           <div class="swatches">
-            @for (c of dressColors; track c) {
+            @for (c of WeddingColors; track c) {
+              <div class="swatch">
+                <span class="dot" [style.background]="c.hex"></span>
+                <span class="sw-name">{{ c.name }}</span>
+              </div>
+            }
+          </div>
+          <h2>Reception Attire</h2>
+          <p class="lead">Celebrate in style — cocktail chic with a splash of our wedding colours.</p>
+           <div class="swatches">
+            @for (c of ReceptionColors; track c) {
               <div class="swatch">
                 <span class="dot" [style.background]="c.hex"></span>
                 <span class="sw-name">{{ c.name }}</span>
@@ -152,12 +162,16 @@
         </figure>
         <div class="card-body">
           <p class="kicker">Share the Memories</p>
-          <h2>Photo Upload</h2>
+          <h2>Share Your Best Moments</h2>
           <p class="lead">Captured a beautiful moment? Add your photos/videos to our shared album so we can relive the day through your eyes.</p>
           <div class="btn-row">
-            <a class="button" [href]="activeFileLocation()" target="_blank" rel="noreferrer">
+            <a class="button" [href]="weddingPhotoAlbumUrl" target="_blank" rel="noreferrer">
               <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V5M8 9l4-4 4 4"/><path d="M5 16v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
-              Share Your Best
+              Wedding Album
+            </a>
+            <a class="button ghost" [href]="receptionPhotoAlbumUrl" target="_blank" rel="noreferrer">
+              <svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V5M8 9l4-4 4 4"/><path d="M5 16v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"/></svg>
+              Reception Album
             </a>
           </div>
         </div>
