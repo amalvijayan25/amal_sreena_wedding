@@ -132,10 +132,20 @@
         </figure>
         <div class="card-body">
           <p class="kicker">What to Wear</p>
-          <h2>Dress Code</h2>
+          <h2>Wedding Attire</h2>
           <p class="lead">Embrace tradition with a modern touch — elegant ethnic wear in our wedding palette.</p>
           <div class="swatches">
-            @for (c of dressColors; track c) {
+            @for (c of WeddingColors; track c) {
+              <div class="swatch">
+                <span class="dot" [style.background]="c.hex"></span>
+                <span class="sw-name">{{ c.name }}</span>
+              </div>
+            }
+          </div>
+          <h2>Reception Attire</h2>
+          <p class="lead">Celebrate in style — cocktail chic with a splash of our wedding colours.</p>
+           <div class="swatches">
+            @for (c of ReceptionColors; track c) {
               <div class="swatch">
                 <span class="dot" [style.background]="c.hex"></span>
                 <span class="sw-name">{{ c.name }}</span>

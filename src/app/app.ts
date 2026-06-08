@@ -41,12 +41,19 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     place: 'Attukal, Thiruvananthapuram'
   };
 
-  dressColors = [
+  WeddingColors = [
     { name: 'Brown', hex: '#4A2018' },
-    { name: 'Ivory', hex: '#F5EDD8' },
+    { name: 'Blue', hex: '#0464c4' },
     { name: 'Mustard', hex: '#C89020' },
     { name: 'Orange', hex: '#B85A1A' },
-    { name: 'Olive', hex: '#3D5E50' }
+    { name: 'Olive', hex: '#A9B28A' }
+  ];
+  ReceptionColors = [
+    { name: 'Navy', hex: '#1A2A6C' },
+    { name: 'Burgundy', hex: '#58111A' },
+    { name: 'Violet', hex: '#4B006E' },
+    { name: 'Emerald', hex: '#0F5257' },
+    { name: 'Black', hex: '#000000' }
   ];
 
   rsvp = { name: '', attending: 'yes', events: 'both', guests: 1, message: '' };
