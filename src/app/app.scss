@@ -12,9 +12,13 @@
   position: fixed;
   inset: -60px;
   z-index: -3;
-  background: #f2e8d6 url('../assets/background-blur.webp') center top / cover no-repeat;
+  background-color: #f2e8d6;
+  background-image: url('../assets/background-blur.webp');
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
   /* soft blur but clearly visible as the backdrop */
-  filter: blur(6.5px) saturate(1.14) brightness(0.82);
+  filter: blur(3.5px) saturate(1.14) brightness(0.82);
   transform: scale(1.1);
   opacity: 1;
 }
@@ -25,7 +29,7 @@
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(1000px 700px at 50% -5%, rgba(251, 247, 239, 0.20), transparent 60%),
+    radial-gradient(1000px 700px at 50% -5%, rgba(251, 247, 239, 0.20), transparent 50%),
     linear-gradient(180deg,
       rgba(251, 247, 239, 0.20) 0%,
       rgba(248, 242, 231, 0.12) 34%,
@@ -619,12 +623,12 @@ main {
   /* portrait background gets zoomed/cropped on phones — soften the blur
      and the scrim so it reads like the desktop, not a heavy smear */
   .bg-blur {
-    filter: blur(9px) saturate(1.08) brightness(1.03);
+    filter: blur(3.5px) saturate(1.08) brightness(1.03);
     transform: scale(1.06);
   }
   .bg-tint {
     background:
-      radial-gradient(700px 500px at 50% -5%, rgba(251, 247, 239, 0.26), transparent 60%),
+      radial-gradient(700px 500px at 50% -5%, rgba(251, 247, 239, 0.26), transparent 50%),
       linear-gradient(180deg,
         rgba(251, 247, 239, 0.30) 0%,
         rgba(248, 242, 231, 0.24) 34%,
