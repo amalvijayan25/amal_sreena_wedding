@@ -148,16 +148,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   enableUploadButton() {
     return new Date() < new Date('2026-08-01T00:00:00');
   }
-  activeFileLocation() {
-    const now = new Date();
-    const weddingDate = new Date('2026-08-28T12:25:00');
-    // const receptionDate = new Date('2026-08-29T16:00:00');
-    if (now < weddingDate) {
-      return this.weddingPhotoAlbumUrl;
-    } else {
-      return this.receptionPhotoAlbumUrl;
-    }
-  }
+  
   ngOnDestroy() {
     if (this.countdownInterval) {
       clearInterval(this.countdownInterval);
